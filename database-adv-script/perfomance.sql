@@ -1,6 +1,6 @@
 -- retrieves all bookings along with the user details, property details, and payment details 
 
-SELECT   
+EXPLAIN SELECT   
   u.first_name || ' ' || u.last_name AS user_name,
   u.email,
   p.name AS property_name,
