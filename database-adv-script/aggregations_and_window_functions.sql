@@ -6,7 +6,9 @@ GROUP BY user_id;
 
 
 -- rank properties based on the total number of bookings they have received.
-SELECT P.*, RANK() OVER(ORDER BY B.bcount DESC) AS rank
+SELECT P.*, 
+  RANK() OVER(ORDER BY B.bcount DESC) AS rank,
+  ROW_NUMBER() OVER(ORDER BY B.bcount DESC) AS row_num
 FROM properties P
 JOIN (
 SELECT property_id, COUNT(*) AS bcount FROM bookings GROUP BY(property_id)
